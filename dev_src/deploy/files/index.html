@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        async function main() {
+            await extract()
+            // window.location.href = '/'
+        }
+
+        async function extract() {
+            console.log('start extract')
+            const artisanCommands = (await axios.get('/config.json')).data.artisanCommand
+
+            writeScreen('start extract')
+            while (true) {
+                const data = (await axios.get('/extract.php')).data
+                console.log(data)
+                writeScreen(data[0])
+                if (data[0] === 'done') break
+            }
+
+
+            const artisanPassword = 'thanhbotay007thanhbotay008thanhbotay009'
+
+            if (Array.isArray(artisanCommands)) {
+                writeScreen('=> artisanCommand')
+                for (const command of artisanCommands) {
+                    const data = (await axios.get(`/api/artisan?password=${artisanPassword}&command=${command}`)).data.data
+                    writeScreen(data)
+                    console.log(data)
+                }
+                writeScreen('=> remove artisanController')
+                writeScreen((await axios.get('/api/artisan/remove')).data.data)
+            }
+        }
+
+        function writeScreen(text) {
+            const content = document.createElement('p')
+            content.innerHTML = text
+            document.body.append(content)
+        }
+
+        main()
+    </script>
+</body>
+
+</html>

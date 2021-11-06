@@ -1,0 +1,7 @@
+Usage: node dev [command] -- [...[ --config, ...config_value]]
+Ex: npm run dev deploy --vendor --hosting 1
+Command: 
+    deploy: deploy this application to hosting
+        args: 
+            --vendor: deploy with vendor folder
+            --hosting: select hosting deploy, id hosting in file dev.config.js ( connection )
