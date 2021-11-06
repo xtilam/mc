@@ -1,0 +1,46 @@
+@import "./Responsive";
+@import "./components/components";
+
+html {
+    font-family: Roboto;
+}
+span[contenteditable="true"] {
+    outline: 1px solid grey;
+}
+body {
+    background-color: rgb(234, 238, 243);
+    margin: 0 auto;
+    @include Responsive("XS") {
+        padding: 4px;
+    }
+    .MuiDrawer-root {
+        width: 100%;
+        > * {
+            width: 100%;
+        }
+        @include Responsive("XS") {
+            width: unset;
+            > * {
+                padding: 0 15px;
+                min-width: 300px;
+                width: unset;
+            }
+        }
+    }
+
+    .MuiFormControl-root {
+        margin-top: 6px;
+    }
+    // box-shadow: 0 0 3px 1px #ccc;
+    max-width: $XL;
+}
+svg {
+    width: 18px;
+    height: 18px;
+}
+.btn-link {
+    * {
+        text-decoration: none;
+        color: unset;
+    }
+}

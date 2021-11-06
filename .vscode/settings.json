@@ -1,0 +1,11 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/vendor": true
+    },
+    "editor.fontFamily": "MoFiraCFusion",
+    "workbench.colorTheme": "Dracula Soft",
+    "workbench.appearance.colorTheme": "Dracula Soft",
+    "editor.fontLigatures": true
+}

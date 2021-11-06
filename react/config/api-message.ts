@@ -1,0 +1,1 @@
+export const messageAPI = { "auth": { "login": { "user_disabled": 2, "user_not_found": -11, "failed": -1, "user_waiting_verification": 1, "success": 0 }, "register": 0, "verification": { "succeed": 0, "failed": 1 }, "token_expired": -99, "miss_token": -98, "token_invalid": -98, "ip_invalid": -100, "logout": 0 }, "error": 1, "exception": { "unknown": {} } }
